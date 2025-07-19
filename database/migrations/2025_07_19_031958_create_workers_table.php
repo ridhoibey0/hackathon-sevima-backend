@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone');
+            $table->string("telegram_id");
             $table->integer('departmen_id');
             $table->timestamps();
         });

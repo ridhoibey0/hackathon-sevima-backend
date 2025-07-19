@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Workers extends Model
 {
+    use Notifiable;
     protected $table = 'workers';
     /**
      * The attributes that are mass assignable.
@@ -19,4 +21,8 @@ class Workers extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function assignment(){
+        return $this->hasMany(ComplaintsAssignment::class, "worker_id", 'id');
+    }
 }
